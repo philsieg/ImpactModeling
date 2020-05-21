@@ -1,5 +1,5 @@
 %% Find Contact Mode and Apply Equations
-
+%Authors: Joah, Phil, Natalie, Andy
  
 % VARIABLES:
     % stepSize - stepSize to vary the mu/epsilon by
