@@ -133,7 +133,7 @@ for u = 0:stepSize:1 %varying mu from [0, 1] in intervals of 0.05
 
         % input error into error matrix
         errors(round(u/stepSize + 1), round(e/stepSize + 1)) = error;
-        
+        disp(round(u/stepSize + 1)+ " " + round(e/stepSize + 1)); 
     end
 end
 
