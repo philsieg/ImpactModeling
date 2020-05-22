@@ -125,22 +125,22 @@ for u = 0:stepSize:1 %varying mu from [0, 1] in intervals of 0.05
 
         % calculate the post impact velocities according to the contact
         % mode
-        x1dot_calc = (Px * rho^2)/I1 + pre(1); 
-        y1dot_calc = (Py * rho^2)/I1 + pre(2); 
+        x1dot_calc = (Px * rho^2)/I1 + pre(1,4); 
+        y1dot_calc = (Py * rho^2)/I1 + pre(1,5); 
 
         % calculate error via least squares method ??
-        error = (x1dot_calc - post(1))^2 + (y1dot_calc - post(2))^2; 
+        error = (x1dot_calc - post(1,4))^2 + (y1dot_calc - post(1,5))^2; 
 
         % input error into error matrix
-        errors(u/stepSize + 1, e/stepSize + 1) = error;
-
+        errors(round(u/stepSize + 1), round(e/stepSize + 1)) = error;
+        
     end
 end
 
 % determine minimum error 
     minimum = min(min(errors));
 % determine the indices of the minimum error
-    [i,j] = find(A == minimum);
+    [i,j] = find(errors == minimum);
 % determine the "best" mu and epsilon value which yields the minimum error
     bestMu = i * stepSize;
     bestEpsilon = j * stepSize;
