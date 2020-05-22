@@ -84,13 +84,14 @@ end
     % we will use a matrix containing calculated Px and Py values
     % columns will be varying epsilon
     % rows will be varying mu
-    
-for u = 0:stepSize:1 %varying mu from [0, 1] in intervals of 0.05
+range = 1:19;
+for q = range %varying mu from [0, 1] in intervals of 0.05
+    u = q * stepSize;
     Pd = (B2 + s * u * B3) * s * S_0;  %(35)
     Pq = (u * B1 + s * B3)*(-C_0);     %(36)
     
-    for e = 0:stepSize:1 %varying epsilon from [0, 1] in intervals of 0.05
-    
+    for r = range %varying epsilon from [0, 1] in intervals of 0.05
+        e = r * stepSize;
         %Use Table 1 to determine modes (conditionals)
         %Apply equations 39 - 48 based on mode
         %Sliding (Second Row of Table)
@@ -132,8 +133,8 @@ for u = 0:stepSize:1 %varying mu from [0, 1] in intervals of 0.05
         error = (x1dot_calc - post(1,4))^2 + (y1dot_calc - post(1,5))^2; 
 
         % input error into error matrix
-        errors(round(u/stepSize + 1), round(e/stepSize + 1)) = error;
-        disp(round(u/stepSize + 1)+ " " + round(e/stepSize + 1)); 
+        errors(q, r) = error;
+
     end
 end
 
