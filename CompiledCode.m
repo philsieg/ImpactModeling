@@ -148,10 +148,10 @@ end
 %% Helper Functions
 
 % This function takes in the specified .csv file and outputs the pre and
-% post impact velocities of the first impact
+% post impact states of the first impact
 % INPUTS: csvFile - name of the .csv file to be accessed
-% OUTPUTS: pre - vector of pre impact x and y velocities [x1dot_0, y1dot_0]
-%          post - vector of post impact x and y velocities [x1dot_act, y1dot_act]
+% OUTPUTS: pre - vector of pre impact state
+%          post - vector of post impact state
 function [pre, post] = actualVelocities(csvFile) 
 
     %load data
